@@ -1,12 +1,15 @@
 package com.nick.moivehomework;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
+import com.nick.moivehomework.Tools.Urls;
 import com.nick.moivehomework.entities.Movies;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -40,14 +43,13 @@ public class ImageAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
-        if (convertView==null){
-
+        if (convertView == null) {
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_image, parent, false);
         }
-        return null;
-    }
-
-    class ViewHolder{
-        ImageView imageView;
+        Movies.Movie movie = list.get(position);
+        String imgUrl = String.format(Urls.getImageUrl(movie.getPostr_path()));
+        System.out.println(movie.getPostr_path()+"+");
+        Picasso.with(context).load(imgUrl).into((ImageView) convertView.findViewById(R.id.item_image));
+        return convertView;
     }
 }

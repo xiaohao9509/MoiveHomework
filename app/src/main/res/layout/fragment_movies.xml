@@ -9,7 +9,8 @@
         android:id="@+id/grid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:numColumns="@dimen/activity_grid"
+        android:numColumns="2"
+
         android:stretchMode="columnWidth" />
 
 </FrameLayout>

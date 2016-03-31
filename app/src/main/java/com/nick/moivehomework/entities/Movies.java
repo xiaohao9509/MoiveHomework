@@ -33,7 +33,7 @@ public class Movies {
                 JSONObject obj = array.optJSONObject(i);
                 if (obj != null) {
                     Movie movie = new Movie(
-                            obj.optString("postr_path"),
+                            obj.optString("poster_path"),
                             obj.optString("overview"),
                             obj.optString("release_date"),
                             obj.optLong("id"),
