@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 
 import com.nick.moivehomework.Tools.Urls;
 import com.nick.moivehomework.entities.Movies;
@@ -50,7 +49,7 @@ public class ImageAdapter extends BaseAdapter {
         String imgUrl = String.format(Urls.getImageUrl(movie.getPostr_path()));
         System.out.println(movie.getPostr_path()+"+");
         System.out.println(convertView.findViewById(R.id.item_image).getWidth());
-        Picasso.with(context).load(imgUrl).into((ImageView) convertView.findViewById(R.id.item_image));
+        Picasso.with(context).load(imgUrl).into((MyImageView) convertView.findViewById(R.id.item_image));
         return convertView;
     }
 }
