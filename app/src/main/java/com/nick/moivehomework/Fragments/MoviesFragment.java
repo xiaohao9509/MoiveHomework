@@ -74,7 +74,8 @@ public class MoviesFragment extends Fragment implements HttpTask.Callback<Movies
             intent.putExtra("id", id);
             startActivity(intent);
         }else {
-            Toast.makeText(getActivity(),id+"",Toast.LENGTH_SHORT).show();
+            InfoFragment fragment = InfoFragment.newInstance(id);
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_content,fragment).commit();
         }
     }
 }
