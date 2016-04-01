@@ -29,7 +29,7 @@ public class MyImageView extends ImageView {
         if (drawable != null && (widthMode == MeasureSpec.EXACTLY && heightMode != MeasureSpec.EXACTLY)) {
             int widthSize = MeasureSpec.getSize(widthMeasureSpec);
             int heightSize = MeasureSpec.getSize(heightMeasureSpec);
-            int h = drawable.getIntrinsicHeight() * widthSize / drawable.getIntrinsicWidth();
+            int h = widthSize*3/2;//drawable.getIntrinsicHeight() // widthSize / drawable.getIntrinsicWidth();
             switch (heightMode) {
                 case MeasureSpec.AT_MOST:
                     heightSize = Math.min(h, heightSize);
