@@ -2,14 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.MoviesFragment">
+    tools:context="com.nick.moivehomework.Fragments.InfoFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <GridView
-        android:id="@+id/grid"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:numColumns="2"
-        android:stretchMode="columnWidth" />
+        android:text="@string/hello_blank_fragment" />
 
 </FrameLayout>

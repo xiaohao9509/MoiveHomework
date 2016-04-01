@@ -8,6 +8,7 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.nick.moivehomework.AsyncTask.HttpTask;
+import com.nick.moivehomework.Fragments.MoviesFragment;
 import com.nick.moivehomework.entities.Movies;
 
 public class MainActivity extends AppCompatActivity implements HttpTask.Callback<Movies>, AdapterView.OnItemClickListener {
