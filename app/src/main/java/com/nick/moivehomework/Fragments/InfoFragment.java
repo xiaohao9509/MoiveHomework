@@ -66,7 +66,7 @@ public class InfoFragment extends Fragment implements HttpTask.Callback<MovieInf
         name.setText(movieInfo.getTitle());
         overview.setText(movieInfo.getOverview());
         year.setText(movieInfo.getRelease_date());
-        String imgUrl = Urls.getImageUrl(movieInfo.getPoster_path());
+        String imgUrl = Urls.getImageUrl("500",movieInfo.getPoster_path());
         System.out.println(imgUrl);
         Picasso.with(getContext()).load(imgUrl).into(image);
 

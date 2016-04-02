@@ -46,7 +46,7 @@ public class ImageAdapter extends BaseAdapter {
             convertView = LayoutInflater.from(context).inflate(R.layout.item_image, parent, false);
         }
         Movies.Movie movie = list.get(position);
-        String imgUrl = String.format(Urls.getImageUrl(movie.getPostr_path()));
+        String imgUrl = String.format(Urls.getImageUrl("342",movie.getPostr_path()));
         System.out.println(movie.getPostr_path()+"+");
         System.out.println(convertView.findViewById(R.id.item_image).getWidth());
         Picasso.with(context).load(imgUrl).into((MyImageView) convertView.findViewById(R.id.item_image));
