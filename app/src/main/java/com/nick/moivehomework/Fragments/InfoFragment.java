@@ -30,6 +30,8 @@ public class InfoFragment extends Fragment implements HttpTask.Callback<MovieInf
     private TextView year;
     private ImageView image;
     private RatingBar rating;
+    private TextView count;
+    private TextView language;
 
     public InfoFragment() {
         // Required empty public constructor
@@ -58,7 +60,8 @@ public class InfoFragment extends Fragment implements HttpTask.Callback<MovieInf
         year = (TextView) view.findViewById(R.id.detail_year);
         image = (ImageView) view.findViewById(R.id.detail_image);
         rating = ((RatingBar) view.findViewById(R.id.detail_rating));
-
+        count = ((TextView) view.findViewById(R.id.detail_count));
+        language = ((TextView) view.findViewById(R.id.detail_language));
         return view;
     }
 
@@ -70,8 +73,17 @@ public class InfoFragment extends Fragment implements HttpTask.Callback<MovieInf
         name.setText(movieInfo.getTitle());
         overview.setText(movieInfo.getOverview());
         year.setText(movieInfo.getRelease_date());
+        count.setText(movieInfo.getVote_count());
+        String lang = movieInfo.getOriginal_language();
+        switch (lang){
+            case "en":
+                language.setText("英语");
+                break;
+            case "zh":
+                language.setText("中文");
+                break;
+        }
         String imgUrl = Urls.getImageUrl("500",movieInfo.getPoster_path());
-        System.out.println(imgUrl);
         Picasso.with(getContext()).load(imgUrl).placeholder(R.mipmap.loading1).into(image);
 
     }

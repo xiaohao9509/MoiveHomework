@@ -10,6 +10,7 @@ import com.nick.moivehomework.Tools.Urls;
 import com.nick.moivehomework.entities.Movies;
 import com.squareup.picasso.Picasso;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -46,8 +47,14 @@ public class ImageAdapter extends BaseAdapter {
             convertView = LayoutInflater.from(context).inflate(R.layout.item_image, parent, false);
         }
         Movies.Movie movie = list.get(position);
-        String imgUrl = String.format(Urls.getImageUrl("342",movie.getPostr_path()));
+        String imgUrl = String.format(Urls.getImageUrl("342", movie.getPostr_path()));
         Picasso.with(context).load(imgUrl).placeholder(R.mipmap.loading).into((MyImageView) convertView.findViewById(R.id.item_image));
         return convertView;
+    }
+
+    public void addAll(Collection<? extends Movies.Movie> collection) {
+        list.addAll(collection);
+        notifyDataSetChanged();
+
     }
 }

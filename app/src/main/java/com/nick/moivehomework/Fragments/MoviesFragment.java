@@ -1,21 +1,18 @@
 package com.nick.moivehomework.Fragments;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.Toast;
 
 import com.nick.moivehomework.AsyncTask.HttpTask;
 import com.nick.moivehomework.ImageAdapter;
 import com.nick.moivehomework.MainActivity;
-import com.nick.moivehomework.OtherActivity;
 import com.nick.moivehomework.R;
 import com.nick.moivehomework.Tools.Urls;
 import com.nick.moivehomework.entities.Movies;
@@ -48,7 +45,7 @@ public class MoviesFragment extends Fragment implements HttpTask.Callback<Movies
         adapter = new ImageAdapter(getActivity(), list);
         gridView.setAdapter(adapter);
         new HttpTask<Movies>(Movies.class, this).execute(Urls.getMoviesUrl(1, MainActivity.popularity_desc, "zh"));
-        gridView.setOnItemClickListener(this);
+       // gridView.setOnItemClickListener(this);
         return view;
     }
 
@@ -56,9 +53,11 @@ public class MoviesFragment extends Fragment implements HttpTask.Callback<Movies
     @Override
     public void onResponse(Movies movies) {
         list.addAll(movies.getList());
-
-        System.out.println("ok");
         adapter.notifyDataSetChanged();
+        long id = movies.getList().get(0).getId();
+        if (MainActivity.tempId != id) {
+            MainActivity.tempId = id;
+        }
     }
 
     @Override
@@ -68,14 +67,6 @@ public class MoviesFragment extends Fragment implements HttpTask.Callback<Movies
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        FrameLayout frame = (FrameLayout) getActivity().findViewById(R.id.main_content);
-        if (frame == null) {
-            Intent intent = new Intent(getActivity(), OtherActivity.class);
-            intent.putExtra("id", id);
-            startActivity(intent);
-        }else {
-            InfoFragment fragment = InfoFragment.newInstance(id);
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_content,fragment).commit();
-        }
+
     }
 }

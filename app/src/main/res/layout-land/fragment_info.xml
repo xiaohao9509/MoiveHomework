@@ -12,21 +12,20 @@
     <TextView
         android:id="@+id/detail_name"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="45dp"
         android:background="#009688"
         android:gravity="center_vertical"
         android:text="@string/hello_blank_fragment"
         android:textColor="#fff"
         android:textSize="20sp" />
 
-
     <ImageView
         android:id="@+id/detail_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/detail_name"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="3dp"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
         android:src="@mipmap/loading1" />
@@ -34,10 +33,10 @@
     <TextView
         android:id="@+id/detail_year_pre"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="12dp"
+        android:layout_marginLeft="8dp"
         android:layout_below="@id/detail_name"
         android:text="上映时间:"
-        android:textSize="15sp"
+        android:textSize="13sp"
         android:layout_toRightOf="@id/detail_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -45,11 +44,12 @@
         android:id="@+id/detail_year"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="15sp"
+        android:textSize="13sp"
         tools:text="2016-5-7"
         android:layout_toRightOf="@id/detail_year_pre"
         android:layout_alignTop="@id/detail_year_pre"
         />
+
     <TextView
         android:id="@+id/detail_language_pre"
         android:layout_below="@id/detail_year_pre"
@@ -66,14 +66,15 @@
         android:layout_alignBottom="@id/detail_language_pre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
     <TextView
         android:id="@+id/detail_mark"
-        android:layout_below="@id/detail_image"
         android:layout_width="wrap_content"
         android:gravity="center_vertical"
         android:layout_height="wrap_content"
         android:textSize="28sp"
-        android:text="评分:"/>
+        android:text="评分:"
+        android:layout_below="@id/detail_image" />
     <RatingBar
         android:id="@+id/detail_rating"
         android:layout_marginLeft="10dp"
