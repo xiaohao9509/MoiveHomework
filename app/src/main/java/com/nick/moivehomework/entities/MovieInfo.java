@@ -151,4 +151,20 @@ public class MovieInfo {
     public void setVote_count(String vote_count) {
         this.vote_count = vote_count;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        MovieInfo movieInfo = (MovieInfo) o;
+
+        return id == movieInfo.id;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
+    }
 }

@@ -13,8 +13,11 @@ import android.widget.Toast;
 import com.nick.moivehomework.AsyncTask.HttpTask;
 import com.nick.moivehomework.Fragments.InfoFragment;
 import com.nick.moivehomework.Fragments.MoviesFragment;
+import com.nick.moivehomework.Tools.SaveLoved;
 import com.nick.moivehomework.Tools.Urls;
 import com.nick.moivehomework.entities.Movies;
+
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity implements HttpTask.Callback<Movies>, AdapterView.OnItemClickListener, AbsListView.OnScrollListener {
     public static final String popularity_desc = "popularity.desc";
@@ -28,7 +31,13 @@ public class MainActivity extends AppCompatActivity implements HttpTask.Callback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        try {
+            SaveLoved.readSet(openFileInput("loved.text"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         frame = (FrameLayout) findViewById(R.id.main_content);
         MoviesFragment fragment = new MoviesFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.main_movies, fragment).commit();
@@ -83,10 +92,10 @@ public class MainActivity extends AppCompatActivity implements HttpTask.Callback
 
     @Override
     public void onScrollStateChanged(AbsListView view, int scrollState) {
-        if (isButtom&&(scrollState == SCROLL_STATE_IDLE)){
-            new HttpTask<Movies>(Movies.class,this).execute(Urls.getMoviesUrl(++page,popularity_desc,"zh"));
-            Toast.makeText(this,"正在加载数据,请稍后~",Toast.LENGTH_SHORT).show();
-        }else {
+        if (isButtom && (scrollState == SCROLL_STATE_IDLE)) {
+            new HttpTask<Movies>(Movies.class, this).execute(Urls.getMoviesUrl(++page, popularity_desc, "zh"));
+            Toast.makeText(this, "正在加载数据,请稍后~", Toast.LENGTH_SHORT).show();
+        } else {
             isButtom = false;
         }
     }
@@ -95,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements HttpTask.Callback
     public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
         if ((firstVisibleItem + visibleItemCount) == totalItemCount) {
             isButtom = true;
-        }else {
+        } else {
             isButtom = false;
         }
     }

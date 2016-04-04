@@ -1,127 +1,136 @@
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     tools:context="com.nick.moivehomework.Fragments.InfoFragment">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/detail_name"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="#009688"
-        android:gravity="center_vertical"
-        android:text="@string/hello_blank_fragment"
-        android:textColor="#fff"
-        android:textSize="20sp" />
+        android:layout_height="match_parent">
+
+        <!-- TODO: Update blank fragment layout -->
+        <TextView
+            android:id="@+id/detail_name"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#009688"
+            android:gravity="center_vertical"
+            android:text="@string/hello_blank_fragment"
+            android:textColor="#fff"
+            android:textSize="20sp" />
 
 
-    <ImageView
-        android:id="@+id/detail_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/detail_name"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:adjustViewBounds="true"
-        android:scaleType="fitXY"
-        android:src="@mipmap/loading1" />
+        <ImageView
+            android:id="@+id/detail_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detail_name"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@mipmap/loading1" />
 
-    <TextView
-        android:id="@+id/detail_year_pre"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="12dp"
-        android:layout_below="@id/detail_name"
-        android:text="上映时间:"
-        android:textSize="15sp"
-        android:layout_toRightOf="@id/detail_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:id="@+id/detail_year"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
-        tools:text="2016-5-7"
-        android:layout_toRightOf="@id/detail_year_pre"
-        android:layout_alignTop="@id/detail_year_pre"
-        />
-    <TextView
-        android:id="@+id/detail_language_pre"
-        android:layout_below="@id/detail_year_pre"
-        android:layout_marginTop="10dp"
-        android:layout_alignLeft="@id/detail_year_pre"
-        android:text="语言:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/detail_year_pre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detail_name"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/detail_image"
+            android:text="上映时间:"
+            android:textSize="15sp" />
 
-    <TextView
-        android:id="@+id/detail_language"
-        tools:text="英语"
-        android:layout_toRightOf="@id/detail_language_pre"
-        android:layout_alignBottom="@id/detail_language_pre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:id="@+id/detail_mark"
-        android:layout_below="@id/detail_image"
-        android:layout_width="wrap_content"
-        android:gravity="center_vertical"
-        android:layout_height="wrap_content"
-        android:textSize="28sp"
-        android:text="评分:"/>
-    <RatingBar
-        android:id="@+id/detail_rating"
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@id/detail_mark"
-        android:layout_below="@id/detail_image"
-        android:layout_width="wrap_content"
-        android:stepSize="0.5"
-        style="@style/Base.Widget.AppCompat.RatingBar.Indicator"
-        android:layout_height="wrap_content"
-        android:numStars="5" />
+        <TextView
+            android:id="@+id/detail_year"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/detail_year_pre"
+            android:layout_toRightOf="@id/detail_year_pre"
+            android:textSize="15sp"
+            tools:text="2016-5-7" />
 
-    <TextView
-        android:id="@+id/detail_average"
-        android:layout_width="20dp"
-        android:gravity="center_vertical"
-        android:layout_toRightOf="@id/detail_rating"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/detail_image"
-        android:layout_alignBottom="@id/detail_rating"
-        android:layout_alignParentRight="true"/>
-    <Button
-        android:id="@+id/detail_add"
-        android:layout_alignBottom="@id/detail_image"
-        android:layout_alignParentRight="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="收藏" />
-    <TextView
-        android:id="@+id/detail_count_pre"
-        android:layout_alignBottom="@id/detail_image"
-        android:layout_toRightOf="@id/detail_image"
-        android:text="评论数:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/detail_count"
-        android:layout_toRightOf="@id/detail_count_pre"
-        android:layout_alignBottom="@id/detail_count_pre"/>
-    <TextView
-        android:id="@+id/detail_overview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_below="@id/detail_rating" />
+        <TextView
+            android:id="@+id/detail_language_pre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/detail_year_pre"
+            android:layout_below="@id/detail_year_pre"
+            android:layout_marginTop="10dp"
+            android:text="语言:" />
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/detail_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/detail_language_pre"
+            android:layout_toRightOf="@id/detail_language_pre"
+            tools:text="英语" />
+
+        <TextView
+            android:id="@+id/detail_mark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detail_image"
+            android:gravity="center_vertical"
+            android:text="评分:"
+            android:textSize="28sp" />
+
+        <RatingBar
+            android:id="@+id/detail_rating"
+            style="@style/Base.Widget.AppCompat.RatingBar.Indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detail_image"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/detail_mark"
+            android:numStars="5"
+            android:stepSize="0.5" />
+
+        <TextView
+            android:id="@+id/detail_average"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/detail_rating"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/detail_image"
+            android:layout_toRightOf="@id/detail_rating"
+            android:gravity="center_vertical" />
+
+        <CheckBox
+            android:id="@+id/detail_add"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignBottom="@id/detail_image"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/loved_selector"
+            android:button="@null" />
+
+        <TextView
+            android:id="@+id/detail_count_pre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/detail_image"
+            android:layout_toRightOf="@id/detail_image"
+            android:text="评论数:" />
+
+        <TextView
+            android:id="@+id/detail_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/detail_count_pre"
+            android:layout_toRightOf="@id/detail_count_pre" />
+
+        <TextView
+            android:id="@+id/detail_overview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detail_rating"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp" />
+
+    </RelativeLayout>
 </ScrollView>

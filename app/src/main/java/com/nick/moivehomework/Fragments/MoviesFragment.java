@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MoviesFragment extends Fragment implements HttpTask.Callback<Movies>, AdapterView.OnItemClickListener {
+public class  MoviesFragment extends Fragment implements HttpTask.Callback<Movies>, AdapterView.OnItemClickListener {
 
     List<Movies.Movie> list = new ArrayList<>();
     private ImageAdapter adapter;
