@@ -40,20 +40,29 @@
         android:layout_marginTop="20dp"
         android:layout_toRightOf="@id/detail_image" />
 
+    <TextView
+        android:id="@+id/detail_mark"
+        android:layout_below="@id/detail_image"
+        android:layout_width="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_height="wrap_content"
+        android:textSize="28sp"
+        android:text="评分:"/>
     <RatingBar
         android:id="@+id/detail_rating"
         android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/detail_mark"
         android:layout_below="@id/detail_image"
         android:layout_width="wrap_content"
-        android:stepSize="0.1"
-        android:rating="3.5"
-        android:progressDrawable="@drawable/rating_yellow"
+        android:stepSize="0.5"
         style="@style/Base.Widget.AppCompat.RatingBar.Indicator"
         android:layout_height="wrap_content"
         android:numStars="5" />
+
     <TextView
         android:id="@+id/detail_average"
         android:layout_width="20dp"
+        android:gravity="center_vertical"
         android:layout_toRightOf="@id/detail_rating"
         android:layout_height="wrap_content"
         android:layout_below="@id/detail_image"

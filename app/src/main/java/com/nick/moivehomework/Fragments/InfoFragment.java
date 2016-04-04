@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.nick.moivehomework.AsyncTask.HttpTask;
@@ -28,6 +29,7 @@ public class InfoFragment extends Fragment implements HttpTask.Callback<MovieInf
     private TextView overview;
     private TextView year;
     private ImageView image;
+    private RatingBar rating;
 
     public InfoFragment() {
         // Required empty public constructor
@@ -55,14 +57,16 @@ public class InfoFragment extends Fragment implements HttpTask.Callback<MovieInf
         overview = (TextView) view.findViewById(R.id.detail_overview);
         year = (TextView) view.findViewById(R.id.detail_year);
         image = (ImageView) view.findViewById(R.id.detail_image);
-
+        rating = ((RatingBar) view.findViewById(R.id.detail_rating));
 
         return view;
     }
 
     @Override
     public void onResponse(MovieInfo movieInfo) {
-        average.setText(movieInfo.getVote_average() + "/10");
+        String vote_average = movieInfo.getVote_average();
+        rating.setRating(Float.parseFloat(vote_average)/2.0f);
+        average.setText(vote_average);
         name.setText(movieInfo.getTitle());
         overview.setText(movieInfo.getOverview());
         year.setText(movieInfo.getRelease_date());

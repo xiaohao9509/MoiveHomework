@@ -47,8 +47,6 @@ public class ImageAdapter extends BaseAdapter {
         }
         Movies.Movie movie = list.get(position);
         String imgUrl = String.format(Urls.getImageUrl("342",movie.getPostr_path()));
-        System.out.println(movie.getPostr_path()+"+");
-        System.out.println(convertView.findViewById(R.id.item_image).getWidth());
         Picasso.with(context).load(imgUrl).placeholder(R.mipmap.loading).into((MyImageView) convertView.findViewById(R.id.item_image));
         return convertView;
     }
