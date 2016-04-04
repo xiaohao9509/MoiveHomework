@@ -1,8 +1,12 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.nick.moivehomework.Fragments.InfoFragment">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -25,35 +29,52 @@
         android:layout_marginTop="3dp"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@mipmap/loading1" />
 
     <TextView
         android:id="@+id/detail_year"
+        android:layout_marginLeft="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/detail_name"
         android:layout_marginTop="20dp"
         android:layout_toRightOf="@id/detail_image" />
 
+    <RatingBar
+        android:id="@+id/detail_rating"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/detail_image"
+        android:layout_width="wrap_content"
+        android:stepSize="0.1"
+        android:rating="3.5"
+        android:progressDrawable="@drawable/rating_yellow"
+        style="@style/Base.Widget.AppCompat.RatingBar.Indicator"
+        android:layout_height="wrap_content"
+        android:numStars="5" />
     <TextView
         android:id="@+id/detail_average"
-        android:layout_width="match_parent"
+        android:layout_width="20dp"
+        android:layout_toRightOf="@id/detail_rating"
         android:layout_height="wrap_content"
-        android:layout_below="@id/detail_year"
-        android:layout_toRightOf="@id/detail_image" />
-
+        android:layout_below="@id/detail_image"
+        android:layout_alignBottom="@id/detail_rating"
+        android:layout_alignParentRight="true"/>
     <Button
         android:id="@+id/detail_add"
+        android:layout_alignBottom="@id/detail_image"
+        android:layout_alignParentRight="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/detail_average"
-        android:layout_toRightOf="@id/detail_image"
+        android:layout_marginBottom="20dp"
         android:text="收藏" />
 
     <TextView
         android:id="@+id/detail_overview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/detail_image" />
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_below="@id/detail_rating" />
 
 </RelativeLayout>
+</ScrollView>
