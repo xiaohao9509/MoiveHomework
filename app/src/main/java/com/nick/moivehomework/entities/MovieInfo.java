@@ -3,10 +3,12 @@ package com.nick.moivehomework.entities;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
+
 /**
  * Created by Administrator on 2016/4/1.
  */
-public class MovieInfo {
+public class MovieInfo implements Serializable{
     private String backdrop_path;
     private int id;
     private String imdb_id;
@@ -167,4 +169,5 @@ public class MovieInfo {
     public int hashCode() {
         return id;
     }
+
 }

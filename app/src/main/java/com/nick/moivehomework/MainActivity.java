@@ -1,5 +1,6 @@
 package com.nick.moivehomework;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,7 @@ import com.nick.moivehomework.Tools.SaveLoved;
 import com.nick.moivehomework.Tools.Urls;
 import com.nick.moivehomework.entities.Movies;
 
+import java.io.File;
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity implements HttpTask.Callback<Movies>, AdapterView.OnItemClickListener, AbsListView.OnScrollListener {
@@ -32,7 +34,16 @@ public class MainActivity extends AppCompatActivity implements HttpTask.Callback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         try {
-            SaveLoved.readSet(openFileInput("loved.text"));
+            File file = new File(getFilesDir(), "loved.txt");
+            if (!file.exists()){
+                file.createNewFile();
+            SaveLoved.saveSet(openFileOutput("loved.txt", Context.MODE_PRIVATE));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            SaveLoved.readSet(openFileInput("loved.txt"));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -79,6 +90,7 @@ public class MainActivity extends AppCompatActivity implements HttpTask.Callback
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
         tempId = id;
         if (frame == null) {
             Intent intent = new Intent(this, OtherActivity.class);
